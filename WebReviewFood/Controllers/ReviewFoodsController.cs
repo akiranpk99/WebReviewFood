@@ -36,6 +36,7 @@ namespace WebReviewFood.Controllers
         }
 
         // GET: ReviewFoods/Create
+        [Authorize]
         public ActionResult Create()
         {
             ReviewFoodViewModel viewModel = new ReviewFoodViewModel
@@ -69,7 +70,7 @@ namespace WebReviewFood.Controllers
             }
             return View(viewModel);
         }
-
+        [Authorize]
         // GET: ReviewFoods/Edit/5
         public async Task<ActionResult> Edit(int? id)
         {
@@ -89,6 +90,7 @@ namespace WebReviewFood.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit([Bind(Include = "Id,TenBaiReview,ThongtinFood,DanhGiaFood,ImageCover,IdCategory")] ReviewFood reviewFood)
         {
@@ -102,6 +104,7 @@ namespace WebReviewFood.Controllers
         }
 
         // GET: ReviewFoods/Delete/5
+        [Authorize]
         public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
@@ -115,7 +118,7 @@ namespace WebReviewFood.Controllers
             }
             return View(reviewFood);
         }
-
+        [Authorize]
         // POST: ReviewFoods/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

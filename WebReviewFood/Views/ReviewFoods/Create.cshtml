@@ -4,14 +4,27 @@
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_mytemplate.cshtml";
 }
+<!-- Core Stylesheet -->
+<link href="@Url.Content("~/Content/mytemplate/")style.css" rel="stylesheet">
 
+<!-- Responsive CSS -->
+<link href="@Url.Content("~/Content/mytemplate/")css/responsive/responsive.css" rel="stylesheet">
+<!-- Jquery-2.2.4 js -->
+<script src="@Url.Content("~/Content/mytemplate/")js/jquery/jquery-2.2.4.min.js"></script>
+<!-- Popper js -->
+<script src="@Url.Content("~/Content/mytemplate/")js/bootstrap/popper.min.js"></script>
+<!-- Bootstrap-4 js -->
+<script src="@Url.Content("~/Content/mytemplate/")js/bootstrap/bootstrap.min.js"></script>
+<!-- All Plugins JS -->
+<script src="@Url.Content("~/Content/mytemplate/")js/others/plugins.js"></script>
+<!-- Active JS -->
+<script src="@Url.Content("~/Content/mytemplate/")js/active.js"></script>
 <h2 style="text-align:center">Create New Review</h2>
 
-
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    <div class="form-horizontal">
+    <div class="form-horizontal" style="margin:auto;width:20%">
         <h4 style="text-align:center">Tạo Bài Viết Mới</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -57,15 +70,13 @@
         </div>
 
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
+            <div style="margin:auto;width:70%">
                 <input type="submit" value="Create" class="btn btn-default" />
-                @Html.ActionLink("Back to List", "Index")
+                @Html.ActionLink("Trở Về", "Index")
             </div>
         </div>
     </div>
 }
-
-
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
