@@ -171,6 +171,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ReviewFoodController.cs" />
+    <Compile Include="Controllers\ReviewFoodsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -489,6 +490,11 @@
     <Content Include="Views\ReviewFood\CreateFood.cshtml" />
     <Content Include="Views\ReviewFood\EditFood.cshtml" />
     <Content Include="Views\ReviewFood\Delete.cshtml" />
+    <Content Include="Views\ReviewFoods\Create.cshtml" />
+    <Content Include="Views\ReviewFoods\Delete.cshtml" />
+    <Content Include="Views\ReviewFoods\Details.cshtml" />
+    <Content Include="Views\ReviewFoods\Edit.cshtml" />
+    <Content Include="Views\ReviewFoods\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -21,8 +21,7 @@
 <!-- Active JS -->
 <script src="@Url.Content("~/Content/mytemplate/")js/active.js"></script>
 <h2 style="text-align:center">CreateFood</h2>
-@using (Html.BeginForm("CreateFood", "ReviewFood", null, FormMethod.Post,
-                              new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("CreateFood", "ReviewFood"))
 {
     @Html.AntiForgeryToken()
     <div class="form-horizontal">
@@ -30,39 +29,39 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.TenBaiReview, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(m => m.TenBaiReview, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.TenBaiReview, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.TenBaiReview, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.TenBaiReview, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(m => m.TenBaiReview, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="form-group">
-            @Html.LabelFor(model => model.ThongtinFood, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(m => m.ThongtinFood, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextAreaFor(model => model.ThongtinFood, 10, 70, null)
-                @Html.ValidationMessageFor(model => model.ThongtinFood, null, new { @class = "text-danger" })
+                @Html.TextAreaFor(m => m.ThongtinFood, 10, 70, null)
+                @Html.ValidationMessageFor(m => m.ThongtinFood, null, new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.DanhGiaFood, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(m => m.DanhGiaFood, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextAreaFor(model => model.DanhGiaFood, 10, 70, null)
-                @Html.ValidationMessageFor(model => model.DanhGiaFood, null, new { @class = "text-danger" })
+                @Html.TextAreaFor(m => m.DanhGiaFood, 10, 70, null)
+                @Html.ValidationMessageFor(m => m.DanhGiaFood, null, new { @class = "text-danger" })
             </div>
         </div>
         <div class="form-group">
-            @Html.LabelFor(model => model.Category, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(m => m.Category, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.Category,
+                @Html.DropDownListFor(m => m.Category,
                 new SelectList(Model.Categories, "Id", "LoaiMonAn"), "", new { @class = "from-control" })
-                @Html.ValidationMessageFor(model => model.Category, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(m => m.Category, "", new { @class = "text-danger" })
             </div>
         </div>
         <fieldset>
             <legend>Ảnh Minh họa</legend>
             <div class="editor-label">
-                @Html.LabelFor(model => model.ImageCover)
+                @Html.LabelFor(m => m.ImageCover)
             </div>
             <div class="editor-field">
                 <input id="ImageCover" title="Upload a product image"
@@ -75,14 +74,14 @@
             </div>
         </div>
     </div>
-}
-<div class="list-blog single-post d-sm-flex wow fadeInUpBig" data-wow-delay=".2s"
-     style="visibility: visible;
+    <div class="list-blog single-post d-sm-flex wow fadeInUpBig" data-wow-delay=".2s"
+         style="visibility: visible;
                 animation-delay: 0.2s;
                 animation-name: fadeInUpBig;
                 margin: 0 auto;
                 ">
-    <p class="read-more">
-        @Html.ActionLink("Back to List", "IndexListFood")
-    </p>
-</div>
+        <p class="read-more">
+            @Html.ActionLink("Back to List", "IndexListFood")
+        </p>
+    </div>
+}

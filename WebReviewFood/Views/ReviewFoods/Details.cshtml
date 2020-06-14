@@ -1,0 +1,59 @@
+﻿@model WebReviewFood.Models.ReviewFood
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ReviewFood</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenBaiReview)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenBaiReview)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ThongtinFood)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThongtinFood)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DanhGiaFood)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DanhGiaFood)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageCover)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImageCover)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdCategory)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdCategory)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

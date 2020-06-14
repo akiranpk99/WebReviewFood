@@ -31,14 +31,15 @@
     <script src="@Url.Content("~/Content/mytemplate/")js/others/plugins.js"></script>
     <!-- Active JS -->
     <script src="@Url.Content("~/Content/mytemplate/")js/active.js"></script>
-
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <!-- Preloader Start -->
+    <!-- Preloader Start
     <div id="preloader">
         <div class="QuyNhonTrip-load"></div>
     </div>
-
+         -->
     <!-- Background Pattern Swither
     <div id="pattern-switcher">
         Bg Pattern
@@ -113,7 +114,7 @@
                                     @Html.ActionLink("Giới Thiệu", "Index", "Home", null, new { @class = "nav-link" })
                                 </li>
                                 <li class="nav-item dropdown">
-                                    @Html.ActionLink("Ẩm Thực", "IndexListFood", "ReviewFood", null, new { @class = "nav-link" })
+                                    @Html.ActionLink("Ẩm Thực", "Index", "ReviewFoods", null, new { @class = "nav-link" })
                                 </li>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="QuyNhonTripDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Địa điểm</a>
@@ -166,5 +167,8 @@
     <div>
         @RenderBody()
     </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
 </body>
 </html>
