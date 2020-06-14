@@ -1,57 +1,86 @@
 ﻿@model IEnumerable<WebReviewFood.Models.ReviewFood>
-
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_mytemplate.cshtml";
 }
+<link rel="icon" href="@Url.Content("~/Content/mytemplate/")img/core-img/logo.PNG">
+<!-- Core Stylesheet -->
+<link href="@Url.Content("~/Content/mytemplate/")style.css" rel="stylesheet">
 
-<h2>Index</h2>
+<!-- Responsive CSS -->
+<link href="@Url.Content("~/Content/mytemplate/")css/responsive/responsive.css" rel="stylesheet">
+<!-- Jquery-2.2.4 js -->
+<script src="@Url.Content("~/Content/mytemplate/")js/jquery/jquery-2.2.4.min.js"></script>
+<!-- Popper js -->
+<script src="@Url.Content("~/Content/mytemplate/")js/bootstrap/popper.min.js"></script>
+<!-- Bootstrap-4 js -->
+<script src="@Url.Content("~/Content/mytemplate/")js/bootstrap/bootstrap.min.js"></script>
+<!-- All Plugins JS -->
+<script src="@Url.Content("~/Content/mytemplate/")js/others/plugins.js"></script>
+<!-- Active JS -->
+<script src="@Url.Content("~/Content/mytemplate/")js/active.js"></script>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.TenBaiReview)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ThongtinFood)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DanhGiaFood)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ImageCover)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IdCategory)
-        </th>
-        <th></th>
-    </tr>
+<h2 style="text-align:center">Các Bài Viết Ẩm Thực </h2>
+<h2 class="single-post" data-wow-delay=".2s"
+    style="text-align:center;">
+    @Html.ActionLink("Tạo Review mới", "Create", null, new { @class = "read-more" })
+</h2>
+<section class="blog_area section_padding_0_80">
+    <div class="container">
+        <div class="row justify-content-center">
+            @foreach (var item in Model)
+            {
+                <!-- Single Post -->
+                <div class="col-12">
+                    <div class="list-blog single-post d-sm-flex wow fadeInUpBig" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUpBig;">
+                        <!-- Post Thumb -->
+                        <div class="post-thumb">
+                            <img src="@item.ImageCover" alt="">
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+                            <div class="post-meta d-flex">
+                                <div class="post-author-date-area d-flex">
+                                    <!-- Post Author -->
+                                    <div class="post-author">
+                                        <a href="#">By QNT</a>
+                                    </div>
+                                    <!-- Post Date -->
+                                    <div class="post-date">
+                                        <a href="#">May 19, 2020</a>
+                                    </div>
+                                </div>
+                                <!-- Post Comment & Share Area -->
+                                <div class="post-comment-share-area d-flex">
+                                    <!-- Post Favourite -->
+                                    <div class="post-favourite">
+                                        <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> 10</a>
+                                    </div>
+                                    <!-- Post Comments -->
+                                    <div class="post-comments">
+                                        <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> 12</a>
+                                    </div>
+                                    <!-- Post Share -->
+                                    <div class="post-share">
+                                        <a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="#">
+                                <h4 class="post-headline"> @Html.DisplayFor(modelItem => item.TenBaiReview) </h4>
+                            </a>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.TenBaiReview)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ThongtinFood)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DanhGiaFood)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ImageCover)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IdCategory)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
-</table>
+                            <p>@Html.DisplayFor(modelItem => item.ThongtinFood)</p>
+
+                        </div>
+                        <div>
+                            @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "read-more" })
+                            @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "read-more" })
+                            @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "read-more" })
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
