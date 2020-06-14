@@ -1,0 +1,81 @@
+﻿@model WebReviewFood.Models.ReviewFood
+@{
+    ViewBag.Title = "IndexListFood";
+    Layout = "~/Views/Shared/_mytemplate.cshtml";
+}
+<link rel="icon" href="@Url.Content("~/Content/mytemplate/")img/core-img/logo.PNG">
+<!-- Core Stylesheet -->
+<link href="@Url.Content("~/Content/mytemplate/")style.css" rel="stylesheet">
+
+<!-- Responsive CSS -->
+<link href="@Url.Content("~/Content/mytemplate/")css/responsive/responsive.css" rel="stylesheet">
+<!-- Jquery-2.2.4 js -->
+<script src="@Url.Content("~/Content/mytemplate/")js/jquery/jquery-2.2.4.min.js"></script>
+<!-- Popper js -->
+<script src="@Url.Content("~/Content/mytemplate/")js/bootstrap/popper.min.js"></script>
+<!-- Bootstrap-4 js -->
+<script src="@Url.Content("~/Content/mytemplate/")js/bootstrap/bootstrap.min.js"></script>
+<!-- All Plugins JS -->
+<script src="@Url.Content("~/Content/mytemplate/")js/others/plugins.js"></script>
+<!-- Active JS -->
+<script src="@Url.Content("~/Content/mytemplate/")js/active.js"></script>
+
+<h2 style="text-align:center">Các Bài Viết Ẩm Thực</h2>
+<div class="list-blog single-post d-sm-flex wow fadeInUpBig" data-wow-delay=".2s"
+     style="visibility: visible;
+        animation-delay: 0.2s;
+        animation-name: fadeInUpBig;
+        margin: 0 auto;
+        ">
+    @Html.ActionLink("Tạo Review mới", "CreateFood", null, new { @class = "read-more" })
+</div>
+<section class="blog_area section_padding_0_80">
+    <div class="container">
+        <div class="row justify-content-center">
+            <!-- Single Post -->
+            <div class="col-12">
+                <div class="list-blog single-post d-sm-flex wow fadeInUpBig" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUpBig;">
+                    <!-- Post Thumb -->
+                    <div class="post-thumb">
+                        <img src="/Content/mytemplate/img/blog-img/30.png" alt="">
+                    </div>
+                    <!-- Post Content -->
+                    <div class="post-content">
+                        <div class="post-meta d-flex">
+                            <div class="post-author-date-area d-flex">
+                                <!-- Post Author -->
+                                <div class="post-author">
+                                    <a href="#">By QNT</a>
+                                </div>
+                                <!-- Post Date -->
+                                <div class="post-date">
+                                    <a href="#">May 19, 2020</a>
+                                </div>
+                            </div>
+                            <!-- Post Comment & Share Area -->
+                            <div class="post-comment-share-area d-flex">
+                                <!-- Post Favourite -->
+                                <div class="post-favourite">
+                                    <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> 10</a>
+                                </div>
+                                <!-- Post Comments -->
+                                <div class="post-comments">
+                                    <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> 12</a>
+                                </div>
+                                <!-- Post Share -->
+                                <div class="post-share">
+                                    <a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <h4 class="post-headline">Ăn là ghiền với mì quảng bún mắm heo quay </h4>
+                        </a>
+                        <p>Menu đa dạng các món nào là mì Quảng gà, mì Quảng cá lóc, mì Quảng bò...giá chỉ từ 30k.</p>
+                        <a href="#" class="read-more">Xem thêm...</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
