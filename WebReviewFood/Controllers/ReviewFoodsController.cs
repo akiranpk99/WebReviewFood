@@ -8,13 +8,12 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using WebReviewFood.Models;
-
+using WebReviewFood.ViewModels;
 namespace WebReviewFood.Controllers
 {
     public class ReviewFoodsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-
         // GET: ReviewFoods
         public async Task<ActionResult> Index()
         {
@@ -39,7 +38,11 @@ namespace WebReviewFood.Controllers
         // GET: ReviewFoods/Create
         public ActionResult Create()
         {
-            return View();
+            ReviewFoodViewModel viewModel = new ReviewFoodViewModel
+            {
+                Categories = db.Categories.ToList()
+            };
+            return View(viewModel);
         }
 
         // POST: ReviewFoods/Create
@@ -47,16 +50,24 @@ namespace WebReviewFood.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,TenBaiReview,ThongtinFood,DanhGiaFood,ImageCover,IdCategory")] ReviewFood reviewFood)
+        public async Task<ActionResult> Create([Bind(Include = "Id,TenBaiReview,ThongtinFood,DanhGiaFood,ImageCover,IdCategory")] ReviewFoodViewModel viewModel)
         {
             if (ModelState.IsValid)
             {
+                viewModel.Categories = db.Categories.ToList();
+                var reviewFood = new ReviewFood
+                {
+                    TenBaiReview = viewModel.TenBaiReview,
+                    ThongtinFood = viewModel.ThongtinFood,
+                    DanhGiaFood = viewModel.DanhGiaFood,
+                    IdCategory = viewModel.Category,
+                    ImageCover = viewModel.ImageCover
+                };
                 db.ReviewFoods.Add(reviewFood);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-
-            return View(reviewFood);
+            return View(viewModel);
         }
 
         // GET: ReviewFoods/Edit/5
