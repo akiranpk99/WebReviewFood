@@ -170,7 +170,6 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\ReviewFoodController.cs" />
     <Compile Include="Controllers\ReviewFoodsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -484,12 +483,7 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\ReviewFood\IndexListFood.cshtml" />
     <Content Include="Views\Shared\_mytemplate.cshtml" />
-    <Content Include="Views\ReviewFood\FoodDetails.cshtml" />
-    <Content Include="Views\ReviewFood\CreateFood.cshtml" />
-    <Content Include="Views\ReviewFood\EditFood.cshtml" />
-    <Content Include="Views\ReviewFood\Delete.cshtml" />
     <Content Include="Views\ReviewFoods\Create.cshtml" />
     <Content Include="Views\ReviewFoods\Delete.cshtml" />
     <Content Include="Views\ReviewFoods\Details.cshtml" />
